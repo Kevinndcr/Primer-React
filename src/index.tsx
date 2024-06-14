@@ -1,19 +1,31 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+			import ReactDOM from 'react-dom/client';
+			import './index.css'
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+			import App from './App';
+			import NavBar from "./components/navBar";
+			import ComponenteKevin from './components/ComponenteKevin';
+			import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+			import Acercade from "./pages/acercade";
+			import Variables from "./pages/variables";			
+			import Funciones from "./pages/funciones";
+			import Modulos from "./pages/modulos";
+
+			const root = ReactDOM.createRoot(
+			  document.getElementById('root') as HTMLElement
+			);
+
+			root.render(
+			  <BrowserRouter>
+				<NavBar />
+				  <Routes>
+					  <Route path="/" element={<App />} />
+					  <Route path="/acercade" element={<Acercade />} />
+					  <Route path="/variables" element={<Variables />} />					  
+					  <Route path="/funciones" element={<Funciones />} />
+					  <Route path="/modulos" element={<Modulos />} />
+					  <Route path='/ComponenteKevin' element={<ComponenteKevin/>}/>
+				  </Routes>
+			  </BrowserRouter>
+			);
